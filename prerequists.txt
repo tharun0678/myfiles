@@ -1,23 +1,25 @@
-    1  hostnamectl set-hostname docker
-    2  exit
-    3  yum install docker -y
-    4  # Download the current stable release of Docker Compose
-    5  sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    6  # Apply executable permissions
-    7  sudo chmod +x /usr/local/bin/docker-compose
-    8  # Create a symbolic link
-    9  sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-   10  # Install using pip (Python package manager)
-   11  sudo yum install -y python3-pip
-   12  sudo pip3 install docker-compose
-   13  yum install git -y
-   14  yum install java-21-corretto -y
-   15  yum install java21-amazon-corretto -y
-   16  yum install java-21-amazon-corretto -y
-   17  sudo wget -O /etc/yum.repos.d/jenkins.repo     https://pkg.jenkins.io/rpm/jenkins.repo
-   18  yum insall jenkins -y
-   19  yum install jenkins -y
-   20  systemctl start jenkins
-   21  systemctl start docker
-   22  systemctl status docker
+  hostnamectl set-hostname docker
+ exit
+sudo -i
+yum install docker -y
+# Download the current stable release of Docker Compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+# Apply executable permissions
+sudo chmod +x /usr/local/bin/docker-compose
+# Create a symbolic link
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+# Install using pip (Python package manager)
+sudo yum install -y python3-pip
+sudo pip3 install docker-compose
+yum install git -y
+yum install java-21-corretto -y
+yum install java21-amazon-corretto -y
+yum install java-21-amazon-corretto -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+https://pkg.jenkins.io/rpm/jenkins.repo
+yum insall jenkins -y
+yum install jenkins -y
+systemctl start jenkins
+systemctl start docker
+systemctl status docker
 
